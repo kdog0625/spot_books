@@ -10,5 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//ユーザー認証
+Auth::routes();
 Route::get('/', 'TweetController@index');
