@@ -1,29 +1,38 @@
-<nav class="navbar navbar-expand navbar-dark bg-light">
+<nav class="navbar navbar-expand navbar-dark sunny_bg">
 
-  <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>memo</a>
+<div class="container d-flex justify-content-center px-4">
+  <a class="navbar-brand font-weight-bold" href="/"><i class="far fa-images mr-1"></i>spot_books</a>
 
   <ul class="navbar-nav ml-auto">
 
-    <li class="nav-item">
-      <a class="nav-link" href=""><i class="fas fa-user-plus mr-1"></i>ユーザー登録</a>
+    @guest 
+    <li class="nav-item user_interval">
+      <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus mr-1"></i>ユーザー登録</a>
     </li>
+    @endguest
 
-    <li class="nav-item">
-      <a class="nav-link" href=""><i class="fas fa-sign-in-alt mr-1"></i>ログイン</a>
+    @guest 
+    <li class="nav-item user_interval">
+      <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-1"></i>ログイン</a>
     </li>
+    @endguest
 
-    <li class="nav-item">
-      <a class="nav-link" href=""><i class="fas fa-user-check mr-1"></i>ゲストログイン</a>
+    @guest 
+    <li class="nav-item user_interval bg-guest">
+      <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-user-check mr-1"></i>ゲストログイン</a>
     </li>
+    @endguest
 
-    <!-- <li class="nav-item">
+    @auth
+    <li class="nav-item">
       <a class="nav-link" href=""><i class="fas fa-pen mr-1"></i>投稿する</a>
     </li>
-
+    @endauth
+    
+    @auth
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-user-circle"></i>
+      <a class="nav-link dropdown-toggle bg-guest" id="navbarDropdownMenuLink" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>{tweets.name}さんログイン中
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
@@ -35,10 +44,11 @@
           ログアウト
         </button>
       </div>
-    </li> -->
-    <form id="logout-button" method="POST" action="">
+    </li>
+    <form id="logout-button" method="POST" action="{{ route('logout') }}">
+    @csrf 
     </form>
-
+    @endauth 
   </ul>
-
+</div>
 </nav>
