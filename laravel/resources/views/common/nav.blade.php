@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark sunny_bg">
 
 <div class="container d-flex justify-content-center px-4">
-  <a class="navbar-brand font-weight-bold bg-guest" href="/"><i class="far fa-images mr-1"></i>spot_books</a>
+  <a class="navbar-brand nav-link font-weight-bold bg-guest title-p_auto" href="/"><i class="far fa-images mr-1"></i>spot_books</a>
 
   <ul class="navbar-nav ml-auto">
 
@@ -18,8 +18,8 @@
     @endguest
 
     @guest 
-    <li class="nav-item user_interval bg-guest">
-      <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-user-check mr-1"></i>ゲストログイン</a>
+    <li class="nav-item user_interval">
+      <a class="nav-link bg-guest" href="{{ route('login') }}"><i class="fas fa-user-check mr-1"></i>ゲストログイン</a>
     </li>
     @endguest
 
@@ -32,7 +32,7 @@
     @auth
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle bg-guest" id="navbarDropdownMenuLink" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>{tweets.name}さんログイン中
+         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>{{ Auth::user()->name }}さんログイン中
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
