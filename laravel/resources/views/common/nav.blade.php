@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark sunny_bg">
 
 <div class="container d-flex justify-content-center px-4">
-  <a class="navbar-brand font-weight-bold" href="/"><i class="far fa-images mr-1"></i>spot_books</a>
+  <a class="navbar-brand font-weight-bold bg-guest" href="/"><i class="far fa-images mr-1"></i>spot_books</a>
 
   <ul class="navbar-nav ml-auto">
 
@@ -25,7 +25,7 @@
 
     @auth
     <li class="nav-item">
-      <a class="nav-link" href=""><i class="fas fa-pen mr-1"></i>投稿する</a>
+      <a class="nav-link" href="{{ route('tweets.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a>
     </li>
     @endauth
     

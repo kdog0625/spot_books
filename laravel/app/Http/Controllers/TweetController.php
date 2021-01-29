@@ -6,6 +6,8 @@ use App\Models\Tweet;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\TweetRequest;
+
 class TweetController extends Controller
 {
     /**
@@ -26,7 +28,7 @@ class TweetController extends Controller
      */
     public function create()
     {
-        //
+        return view('tweets.create'); 
     }
 
     /**
@@ -35,9 +37,16 @@ class TweetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    
+    //$requestはTweetRequestクラスのインスタンス。$tweetはTweetクラスのインスタンス。
+    public function store(TweetRequest $request, Tweet $tweet)
     {
-        //
+        //DI(メソッドの内部で他のクラスのインスタンスを生成するのではなく、外で生成されたクラスのインスタンスをメソッドの引数として受け取る流れ)により$tweet = new Tweet(); と記載しなくて良くなる。
+        //fillableプロパティ内に指定しておいたプロパティ(ここではtweet_nameとbody)のみが、$tweetの各プロパティに代入
+        $tweet->fill($request->all());
+        $tweet->user_id = $request->user()->id;
+        $tweet->save();
+        return redirect()->route('tweets.index');
     }
 
     /**
