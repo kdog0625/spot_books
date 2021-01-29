@@ -13,6 +13,10 @@
   border-radius: 4px;
 }
 
+.title-p_auto {
+  padding: 1rem;
+}
+
 .mt-login-up {
   margin-top: 50px;
 }
