@@ -31,9 +31,8 @@
     
     @auth
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-user-circle"></i>
+      <a class="nav-link dropdown-toggle bg-guest" id="navbarDropdownMenuLink" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>{tweets.name}さんログイン中
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
