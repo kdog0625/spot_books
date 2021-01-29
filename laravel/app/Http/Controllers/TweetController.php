@@ -55,9 +55,9 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tweet $tweet)
     {
-        //
+        return view('tweets.show', ['tweet' => $tweet]);
     }
 
     /**
@@ -66,9 +66,9 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tweet $tweet)
     {
-        //
+        return view('tweets.edit', ['tweet' => $tweet]);    
     }
 
     /**
@@ -78,9 +78,10 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tweet $tweet)
     {
-        //
+        $tweet->fill($request->all())->save();
+        return redirect()->route('tweets.index');
     }
 
     /**
@@ -89,8 +90,9 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tweet $tweet)
     {
-        //
+        $tweet->delete();
+        return redirect()->route('tweets.index');
     }
 }
