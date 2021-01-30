@@ -18,6 +18,8 @@ class CreateTweetsTable extends Migration
             $table->string('tweet_name')->comment('タイトル');
             $table->text('content')->comment('本文');
             $table->string('tweet_image')->comment('画像');
+            //外部キー制約を付与。mysqlの場合の記述。
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
         });
     }

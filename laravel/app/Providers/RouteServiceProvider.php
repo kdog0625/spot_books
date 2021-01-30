@@ -21,6 +21,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+
+    //リダイレクト先を設定。
     public const HOME = '/';
 
     /**
