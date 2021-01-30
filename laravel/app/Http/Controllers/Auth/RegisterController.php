@@ -22,7 +22,7 @@ class RegisterController extends Controller
     |
     */
 
-    //RegistersUsersトレイト
+    //RegistersUsersトレイト(トレイト内で定義している機能が使えるようになる。)
     use RegistersUsers;
 
     /**
@@ -30,6 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+    //redirectToというプロパティにRouteServiceProviderクラスのHOMEという定数が代入
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
