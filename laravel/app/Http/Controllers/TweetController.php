@@ -10,14 +10,6 @@ use App\Http\Requests\TweetRequest;
 
 class TweetController extends Controller
 {
-    //クラスのインスタンスが生成された時に初期処理として特に呼び出さなくても必ず実行
-    public function __construct()
-    {
-        //コントローラーのCRUDアクションに対して、一括してポリシーによる認可制御を適用。
-        //第一引数にモデルのクラス名、第二引数には、そのモデルのIDがセットされる、ルーティングのパラメータ名を渡す。
-        $this->authorizeResource( Tweet::class, 'tweet');
-    }
-    
     /**
      * Display a listing of the resource.
      *
