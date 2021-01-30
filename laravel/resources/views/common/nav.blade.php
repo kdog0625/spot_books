@@ -19,7 +19,7 @@
 
     @guest 
     <li class="nav-item user_interval">
-      <a class="nav-link bg-guest" href="{{ route('login') }}"><i class="fas fa-user-check mr-1"></i>ゲストログイン</a>
+      <a class="nav-link bg-guest" href="{{ route('login.guest') }}"><i class="fas fa-user-check mr-1"></i>ゲストログイン</a>
     </li>
     @endguest
 
