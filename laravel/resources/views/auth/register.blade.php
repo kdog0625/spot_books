@@ -16,8 +16,9 @@
                 @csrf
                 <div class="md-form">
                   <label for="name">ユーザー名</label>
+                  <!-- old関数を使うことで、入力した内容が保持された状態でユーザー登録画面を表示 -->
                   <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">
-                  <small>英数字3〜16文字(登録後の変更はできません)</small>
+                  <small>16文字以内で入力して下さい。</small>
                 </div>
                 <div class="md-form">
                   <label for="email">メールアドレス</label>
