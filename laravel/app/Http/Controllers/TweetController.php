@@ -10,6 +10,13 @@ use App\Http\Requests\TweetRequest;
 
 class TweetController extends Controller
 {
+    //クラスのインスタンスが生成された時に初期処理として特に呼び出さなくても必ず実行する。
+    public function __construct()
+    {
+        //第一引数にモデルのクラス名、第二引数にルーティングのパラメータ
+        $this->authorizeResource(Tweet::class, 'tweet');
+    }
+
     /**
      * Display a listing of the resource.
      *
