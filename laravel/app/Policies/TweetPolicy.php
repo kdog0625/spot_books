@@ -11,74 +11,74 @@ class TweetPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view any models tweets.
+     * Determine whether the user can view any tweets.
      *
      * @param  \App\Models\User  $user
      * @return mixed
      */
-
-    //コントローラーのindexアクションメソッドに対応。?でnullであることも許容
+    //?を付けて引数がnullでも許容。
     public function viewAny(?User $user)
     {
-        return true;
+        //
+        return true; 
     }
 
     /**
-     * Determine whether the user can view the models tweet.
+     * Determine whether the user can view the tweet.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tweet  $modelsTweet
+     * @param  \App\Models\Tweet  $tweet
      * @return mixed
      */
-
-    //コントローラーのshowアクションメソッドに対応
     public function view(?User $user, Tweet $tweet)
     {
-        return true;
+        //
+        return true; 
     }
 
     /**
-     * Determine whether the user can create models tweets.
+     * Determine whether the user can create tweets.
      *
      * @param  \App\Models\User  $user
      * @return mixed
      */
     public function create(User $user)
     {
-        //作成前のためユーザーIDを比較するといったことはできないので一律trueとする。
-        return true;
+        //まだ未作成のため、ユーザーIDを比較することはないためtrueで返す。
+        return true; 
     }
 
     /**
-     * Determine whether the user can update the models tweet.
+     * Determine whether the user can update the tweet.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tweet  $modelsTweet
+     * @param  \App\Models\Tweet  $tweet
      * @return mixed
      */
     public function update(User $user, Tweet $tweet)
     {
-        //ログイン中のユーザーのIDと記事モデルのユーザーIDが一致すればtrueを、不一致であればfalseを返すように設定。
+        //ログイン中のユーザーのIDと記事モデルのユーザーIDが一致すればtrueを、不一致であればfalseを返す
         return $user->id === $tweet->user_id;
     }
 
     /**
-     * Determine whether the user can delete the models tweet.
+     * Determine whether the user can delete the tweet.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tweet  $modelsTweet
+     * @param  \App\Models\Tweet  $tweet
      * @return mixed
      */
     public function delete(User $user, Tweet $tweet)
     {
+        //
         return $user->id === $tweet->user_id;
     }
 
     /**
-     * Determine whether the user can restore the models tweet.
+     * Determine whether the user can restore the tweet.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tweet  $modelsTweet
+     * @param  \App\Models\Tweet  $tweet
      * @return mixed
      */
     public function restore(User $user, Tweet $tweet)
@@ -87,10 +87,10 @@ class TweetPolicy
     }
 
     /**
-     * Determine whether the user can permanently delete the models tweet.
+     * Determine whether the user can permanently delete the tweet.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Tweet  $modelsTweet
+     * @param  \App\Models\Tweet  $tweet
      * @return mixed
      */
     public function forceDelete(User $user, Tweet $tweet)
