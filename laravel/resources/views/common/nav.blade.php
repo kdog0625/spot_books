@@ -6,7 +6,7 @@
       <span></span>
       <input class="form-control w-100" name="search" type="search" placeholder="投稿を検索" value="{{ $search ?? old('search') }}">
     </form>
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav">
 
     @guest 
     <li class="nav-item user_interval">
