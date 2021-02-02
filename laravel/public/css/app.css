@@ -17,6 +17,10 @@
   padding: 1rem;
 }
 
+.search-form {
+  margin: 0 auto;
+}
+
 .mt-login-up {
   margin-top: 50px;
 }
