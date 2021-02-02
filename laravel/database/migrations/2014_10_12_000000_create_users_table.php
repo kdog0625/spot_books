@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('own_id')->unique();
             $table->string('name');
             $table->string('email')->unique();
             //nullableでカラムにnullが入ることを許容
