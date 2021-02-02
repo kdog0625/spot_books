@@ -2,8 +2,11 @@
 
 <div class="container d-flex justify-content-center px-4">
   <a class="navbar-brand nav-link font-weight-bold bg-guest title-p_auto" href="/"><i class="far fa-images mr-1"></i>spot_books</a>
-
-  <ul class="navbar-nav ml-auto">
+    <form method="GET" action="{{ route('tweets.index') }}" class="search-form form-inline w-25 d-none d-md-flex">
+      <span></span>
+      <input class="form-control w-100" name="search" type="search" placeholder="投稿を検索" value="{{ $search ?? old('search') }}">
+    </form>
+  <ul class="navbar-nav">
 
     @guest 
     <li class="nav-item user_interval">
