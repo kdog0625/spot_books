@@ -45,7 +45,7 @@ class LoginController extends Controller
     // ゲストログイン処理
     public function guestLogin()
     {
-        $guestUserId = 1;
+        $guestUserId = 4;
         // id=1 のゲストユーザー情報がDBに存在すれば、ゲストログインする。定義した定数を使う時は、self::定数名　という形式を使う。
         if (Auth::loginUsingId($guestUserId)) {
             return redirect('/');
