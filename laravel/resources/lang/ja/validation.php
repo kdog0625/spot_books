@@ -147,6 +147,7 @@ return [
 
     //項目名を日本語化
     'attributes' => [
+      'own_id' => 'ユーザーID',
       'name' => 'ユーザー名',
       'email' => 'メールアドレス',
       'password' => 'パスワード',

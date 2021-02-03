@@ -52,6 +52,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'own_id' => ['required', 'string', 'min:1', 'max:16', 'unique:users','regex:/^@[a-zA-Z0-9]+$/'],
             'name' => ['required', 'string', 'min:1', 'max:16'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             //alpha_numで英数字かチェック。
@@ -68,6 +69,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
+            'own_id' => $data['own_id'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
