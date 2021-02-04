@@ -6,8 +6,8 @@
 
   @include('common/nav')
 
-  <div class="container mt-4">
-    <div class="card justify-content-center col-md-4">
+  <div class="container mt-5">
+    <div class="card mx-auto" style="width: 500px;">
       <div class="card-body">
         <div class="d-flex flex-row">
           <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
