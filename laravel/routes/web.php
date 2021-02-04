@@ -15,5 +15,7 @@ Auth::routes();
 Route::get('/', 'TweetController@index')->name('tweets.index');
 Route::resource('/tweets', 'TweetController')->except(['index','show'])->middleware('auth');
 Route::resource('/tweets', 'TweetController')->only(['show']);
-Route::resource('/users', 'UserController')->only(['show']);
+Route::prefix('users')->group(function () {
+    Route::get('/{name}', 'UserController@show')->name('users.show');
+});
 Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
