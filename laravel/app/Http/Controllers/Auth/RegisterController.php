@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             //alpha_numで英数字かチェック。
             'password' => ['required', 'string', 'alpha_num', 'min:8', 'confirmed'],
+            'profile_image' => ['file','mimes:jpeg,png,jpg,bmb','max:2048'],
         ]);
     }
 
